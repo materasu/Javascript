@@ -1,0 +1,38 @@
+<div class="card">
+        <div class="card-header">
+          Total Items in Cart: 
+          <span class="badge badge-white">{{totalCount}}</span>
+          Total Price of Cart Items: 
+          <span class="badge badge-white"> &#8377; {{totalPrice}}</span>
+          
+          <span>
+          <button *ngIf="!togCart" class="btn btn-sm btn-success" 
+          (click)="toggleCart($event)"> Show Cart</button>
+        
+        <button *ngIf="togCart" class="btn btn-sm btn-danger" 
+        (click)="toggleCart($event)">Hide Cart</button></span>
+        
+      </div>
+      <app-items-cart *ngIf="togCart" [val]="totalCount" [cartVal] = "cart" 
+      (boom) = "incrementTotalCount($event)"
+      (boom1) = "decrementTotalCount($event)">
+      </app-items-cart>
+     
+
+        <div class="card-body">
+         
+        <div class="container">
+            <div class="list-group-item">
+              <app-items-desc *ngFor="let n of items" 
+                      [value]="n" 
+                      (boom)="incrementTotalCount($event)"
+                      (boom1) = "decrementTotalCount($event)">
+                    
+                </app-items-desc>
+            </div>
+          <!-- <div style="clear: both;">
+            <app-summary [value]="totalCount"></app-summary>
+          </div> -->
+      
+        </div>
+      </div>

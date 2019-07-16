@@ -1,0 +1,21 @@
+<div class = "card">
+    <div class = "card-header">
+        Hello, Please Enter your New Todo
+    </div>
+    <input type="text" class="form-control" placeholder="Enter Todo" id = "TodoInput" value = "">
+    
+</div>
+<button class="btn btn-sm btn-warning" (click)="addNewTodo($event)">Add Todo</button>
+<div class = "container" *ngIf = "showNewOptions">
+    <h5> New Todo Added successfully! </h5>
+    <span>
+    <button class = "btn btn-dark" >Add New Todo</button>
+    <a class = "btn btn-danger" routerLink = "/view">View Todos</a>
+    </span> 
+</div>
+
+<div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+

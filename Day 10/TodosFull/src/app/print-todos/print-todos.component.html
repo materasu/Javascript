@@ -1,0 +1,29 @@
+<table *ngIf = "printTodos.length !==0" class = "table table-sm table-bordered">
+    <tr class = "table-header">
+        <!-- <th>ID</th> -->
+        <th></th>
+        <th>Description</th>
+        <!-- <th>Status</th> -->
+    </tr>
+    <tbody *ngFor = "let todo of printTodos">
+    <tr
+    >
+        <!-- <td>{{todo.id}}</td> -->
+        
+        <td>
+            <label class="btn btn-sm">
+                <input class="checkbox" type="checkbox" [checked] = "todo.completed" value="" id="Comp" (change) = "toggleTodo($event,todo)">
+                <!-- <span class="glyphicon glyphicon-ok"></span> -->
+            </label>
+        </td>
+        <td>{{todo.description}}</td>
+        <!-- <td *ngIf = "todo.completed">Complete</td> -->
+        <!-- <td *ngIf = "!todo.completed">Active</td> -->
+        <!-- <td><button class = "btn btn-success" (click) = "completeTodo($event,todo.id)">Mark Complete</button></td> -->
+        <!-- <td><button class = "btn btn-danger" (click) = "incompleteTodo($event,todo.id)">Mark Incomplete</button></td> -->
+        <td><button class = "btn btn-dark" (click) = "deleteTodo($event,todo.id)">Delete</button></td>
+    </tr>
+</tbody>
+  </table>
+
+ 

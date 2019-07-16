@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-dark bg-info">
+  <a class="navbar-brand" href="/">{{title}}</a>
+</nav>
+<table class="table table-sm table-bordered">
+
+    <thead class = "thead-light">
+        <tr>
+          <!-- <th scope="col">ID</th> -->
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <!-- <th scope = "col">Total</th> -->
+        </tr>
+      </thead>
+      <tr *ngFor="let todo of todos">
+          <td > {{todo.id}} </td>
+          <td > {{todo.name}} </td>
+          <td > {{todo.completed}} </td>
+      </tr>
+</table>
+<router-outlet></router-outlet>

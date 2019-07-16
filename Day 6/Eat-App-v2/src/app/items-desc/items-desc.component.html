@@ -1,0 +1,54 @@
+<div class = "yourname">
+<div class= "row">
+        <div class="col-3 col-sm-3 col-md-3 col-lg-3">
+          <img [src]="item.imgPath" class="img-fluid"/>
+        </div>
+         <div class="col-9 col-sm-9 col-md-9 col-lg-9">
+           <span *ngIf="item.type == true" class="badge badge-success">Veg</span>
+           <span *ngIf="item.type == false" class="badge badge-danger">NVeg</span>
+           <h5>{{item.name}}</h5>
+           <h6> &#8377; {{item.price}}</h6>
+           <!-- <div>{{item.description}}</div> -->
+           <div class = "buy">
+           <button *ngIf="item.canBuy" class="btn btn-sm btn-dark" 
+           (click)="incrementCount($event)">
+           +
+          </button>
+           <span class="badge badge-white">{{count}}</span>
+           <button *ngIf="item.canBuy" class="btn btn-sm btn-dark" 
+           (click)="decrementCount($event)"
+           >-
+          </button>
+           </div>
+           <br />
+           <ul class="nav nav-tabs">
+             <li class="nav-item">
+               <a (click)="changeTab($event,1)" 
+                  class="nav-link" 
+                  [class.active]="isTabSelected(1)" 
+                  href="/">Description
+               </a>
+             </li>
+             <li class="nav-item">
+               <a (click)="changeTab($event,2)" 
+                  [ngClass]="{'nav-link':true,active:isTabSelected(2)}" 
+                  href="/">Ingredients
+               </a>
+             </li>
+             <li class="nav-item">
+               <a (click)="changeTab($event,3)" 
+                  [ngClass]="{'nav-link':true,active:isTabSelected(3)}"
+                  href="/">Reviews
+               </a>
+             </li>
+           </ul>
+           <div *ngIf="isTabSelected(1)">{{item.description}}</div>
+           <div *ngIf="isTabSelected(2)">{{item.ingredients}}</div>
+           <div *ngIf="isTabSelected(3)">
+             <app-item-review *ngFor="let n of item.reviews" 
+            [value]="n"> 
+          </app-item-review>
+          </div>
+         </div>
+       </div>
+      </div>
